@@ -22,6 +22,17 @@ validacion(){
     return 1
 }
 
+validacion_reg(){
+    if [[ $1 =~ ^[0-9]{8}$ ]]; then
+        return 0
+    elif [[ ${#1} -le 7 || ${#1} -ge 9  ]]; then
+        return 1
+    else
+        return 2
+    fi
+}
+
+
 
 # Informamos al usuario.
 echo "Este script le va a consultar el número del DNI, para poder determinar su letra."
@@ -43,7 +54,7 @@ if [ $valDNI == 0 ]; then
     echo "La letra correspondiente para el DNI introducido es: ${LetraDNI[$resto]}"
     echo "DNI: $dni${LetraDNI[resto]}"
 elif [ $valDNI == 1 ]; then
-    echo "DNI incorrecto, el número de caracteres es incorrecto."
+    echo "DNI incorrecto, el número de caracteres es ${#dni} y ha de ser 8."
 elif [ $valDNI == 2 ]; then
     echo "DNI incorrecto, el DNI introducido contiene caracteres no numéricos."
 fi
