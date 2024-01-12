@@ -52,7 +52,7 @@ Para realizar el primer script debemos seguir los siguientes pasos:
 
 Estos serían los pasos fundamentales necesarios para la creación de tu primer script en Bash y tenerlo totalmente funcional, pero aún faltaría saber cómo se ha de ejecutar y para ello solo tenemos que ejecutarlo poniendo la ruta del archivo junto con su nombre: `<ruta>\<nombre del script>.sh`.
 
-Además os dejo disponible una pequeña infografía que espero que os pueda servir de ayuda [Infografía](infografía.pdf)
+Además os dejo disponible una pequeña infografía que espero que os pueda servir de ayuda [Infografía](infografia.pdf).
 
 
 
