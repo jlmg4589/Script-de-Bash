@@ -5,6 +5,13 @@
 1. [Introducción a Bash](#1-introducción-a-bash)  
 2. [Estructura básica de un script](#2-Estructura-básica-de-un-script)
 3. [¿Cómo crear el primer hola mundo?](#3-¿Cómo-crear-el-primer-hola-mundo?)
+4. [Introducción de variables en Bash](#4-introducción-de-variables-en-bash)
+    4.1 [Ámbito de una variable](#41-ámbito-de-una-variable)
+    4.2 [Variables de entorno](#42-variables-de-entorno)
+    4.3 [Variables especiales de un script](#43-variables-especiales-de-un-script)
+    4.4 [Asignación del resultado de un comando a una función](#44-asignación-del-resultado-de-un-comando-a-una-función)
+    4.5 [Comillas en Bash](#45-comillas-en-bash)
+
 
 
 [Comandos en Bash](#comandos-en-bash)
