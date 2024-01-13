@@ -2,8 +2,8 @@
 # Índice  
 [Taller de introducción a Bash](#taller-de-introducción-a-bash)
 1. [Introducción a Bash](#1-introducción-a-bash)  
-2. [Estructura básica de un script](#2-Estructura-básica-de-un-script)
-3. [¿Cómo crear el primer hola mundo?](#3-¿Cómo-crear-el-primer-hola-mundo?)
+2. [Estructura básica de un script](#2-estructura-básica-de-un-script)
+3. [¿Cómo crear el primer hola mundo?](#3-¿cómo-crear-el-primer-hola-mundo)
 4. [Introducción de variables en Bash](#4-introducción-de-variables-en-bash)
 
     4.1. [Ámbito de una variable](#41-ámbito-de-una-variable)
