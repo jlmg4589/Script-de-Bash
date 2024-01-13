@@ -1,24 +1,28 @@
-# **Taller de introducción a Bash**  
 
 # Índice  
-
+[Taller de introducción a Bash](#taller-de-introducción-a-bash)
 1. [Introducción a Bash](#1-introducción-a-bash)  
 2. [Estructura básica de un script](#2-Estructura-básica-de-un-script)
 3. [¿Cómo crear el primer hola mundo?](#3-¿Cómo-crear-el-primer-hola-mundo?)
 4. [Introducción de variables en Bash](#4-introducción-de-variables-en-bash)
-    4.1 [Ámbito de una variable](#41-ámbito-de-una-variable)
-    4.2 [Variables de entorno](#42-variables-de-entorno)
-    4.3 [Variables especiales de un script](#43-variables-especiales-de-un-script)
-    4.4 [Asignación del resultado de un comando a una función](#44-asignación-del-resultado-de-un-comando-a-una-función)
-    4.5 [Comillas en Bash](#45-comillas-en-bash)
 
+    4.1. [Ámbito de una variable](#41-ámbito-de-una-variable)
+    
+    4.2. [Variables de entorno](#42-variables-de-entorno)
+    
+    4.3. [Variables especiales de un script](#43-variables-especiales-de-un-script)
+    
+    4.4. [Asignación del resultado de un comando a una función](#44-asignación-del-resultado-de-un-comando-a-una-función)
+    
+    4.5. [Comillas en Bash](#45-comillas-en-bash)
 
+5. [Comandos en Bash](#comandos-en-bash)
 
-[Comandos en Bash](#comandos-en-bash)
+<!-- [Referencias](#referencias)-->  
 
-[Referencias](#referencias)  
+# **Taller de introducción a Bash** 
 
-## **1 Introducción a Bash**
+## **1. Introducción a Bash**
 Básicamente es una interfaz de usuario de línea de comandos muy popular, específicamente es un **Shell de Unix**; así como un **lenguaje de scripting**. Originalmente fue escrito por **Brian Fox** y fue lanzado en **1989**.
 
 **Bash es un intérprete de órdenes que generalmente se ejecuta en una ventana de texto** donde el usuario escribe órdenes en modo texto.
@@ -28,7 +32,7 @@ Existe un elemento fundamental que se ha de poner siempre en la primera línea d
 
 También es posible lanzar la ejecución de un script indicando en su ejecución qué intérprete de comandos deseamos utilizar por ejemplo: `bash script.sh`
 
-## **2 Estructura básica de un script**
+## **2. Estructura básica de un script**
 
 En este apartado se muestra la estructura básica que ha de tener un script en Bash.
 En él se aprecian 3 apartados líneas bien diferenciadas.
@@ -43,7 +47,7 @@ En él se aprecian 3 apartados líneas bien diferenciadas.
 echo "Hola mundo"
 ```
 
-## **3 ¿Cómo crear el primer hola mundo?**
+## **3. ¿Cómo crear el primer hola mundo?**
 
 Para realizar el primer script debemos seguir los siguientes pasos:
 
@@ -59,7 +63,7 @@ Estos serían los pasos fundamentales necesarios para la creación de tu primer 
 
 Además os dejo disponible una pequeña infografía que espero que os pueda servir de ayuda [Infografía](Infografia.pdf).
 
-## **4 Introducción de variables en Bash**
+## **4. Introducción de variables en Bash**
 
 Aquí te mostraré cómo se ha de realizar una asignación a una variable en Bash. En primera instancia, vamos a aprender para qué sirve una variable.
 
@@ -86,7 +90,7 @@ A continuación se indica la sintaxis de las variables para diferentes casuísti
 
     Lo importante de este caso es que debemos de anteponer un `$` a la variable para poder acceder a ella.
 
-    Enlace a explicación del comando [echo](#1-Comando-echo)
+    Enlace a explicación del comando [echo](#51-comando-echo)
 
 3) Asignar el valor de una variable a otra variable.
 
@@ -196,11 +200,11 @@ Por ejemplo:
 
     ![imagComillas2](/Imagenes/comillas-salida2.png)
 
-## Comandos en Bash
+## 5. Comandos en Bash
 
 En este apartado se pretende ir anexando aquellos comandos que se están utilizando en cada uno de los script que vamos utilizando.
 
-### 1. Comando echo
+### 5.1. Comando echo
 
     En Linux, se utiliza para imprimir por la salida estándar, la pantalla por defecto, el texto introducido al comando `echo`.
 
