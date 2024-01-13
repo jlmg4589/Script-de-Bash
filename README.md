@@ -23,7 +23,8 @@
 # **Taller de introducción a Bash** 
 
 ## **1. Introducción a Bash**
-Básicamente es una interfaz de usuario de línea de comandos muy popular, específicamente es un **Shell de Unix**; así como un **lenguaje de scripting**. Originalmente fue escrito por **Brian Fox** y fue lanzado en **1989**.
+<p style="text-align: justify;">
+Básicamente es una interfaz de usuario de línea de comandos muy popular, específicamente es un **Shell de Unix**; así como un **lenguaje de scripting**. Originalmente fue escrito por **Brian Fox** y fue lanzado en **1989**.</p>
 
 **Bash es un intérprete de órdenes que generalmente se ejecuta en una ventana de texto** donde el usuario escribe órdenes en modo texto.
 Al igual que todos los intérpretes de Unix, es compatible de nombres de archivos. Al igual que todos los intérpretes de Unix, es compatible con **tuberías**, **variables** y **estructuras de control**.
