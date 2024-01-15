@@ -18,6 +18,8 @@ contar_archivos(){
 }
 
 mostrar_pantalla(){
+    echo "--------------------------------------------------------------"
+    echo "Directorio: \"$1\""
     echo "---------------------- RESUMEN DE DATOS ----------------------"
     echo "El número de carácteres son: $caracter ($por_car [%])"
     echo "El número de dispositivos son: $bloque ($por_blq [%])"
@@ -44,9 +46,10 @@ porcentajes(){
 
 until [[ $continuar == [nN] ]]
 do
+    local path
     read -p "Introduce el path que desea analizar: " path
     contar_archivos $path
     porcentajes
-    mostrar_pantalla
+    mostrar_pantalla $path
     read -p "¿Desea comprobar otro path? (S/N): " continuar
 done
