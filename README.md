@@ -95,7 +95,7 @@ A continuación se indica la sintaxis de las variables para diferentes casuísti
 3) Asignar el valor de una variable a otra variable.
 
     ```bash
-    variable2=variable1
+    variable2=$variable1
     ```
     El valor que inicialmente estaba en la `variable1` ahora está también en la `variable2`.
 
