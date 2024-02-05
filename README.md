@@ -16,7 +16,11 @@
     
     4.5. [Comillas en Bash](#45-comillas-en-bash)
 
-5. [Comandos en Bash](#comandos-en-bash)
+5. [Operaciones artiméticas](#5-operaciones-aritméticas)
+
+6. [Lógica](#6-lógicas)
+
+*. [Comandos en Bash](#comandos-en-bash)
 
 <!-- [Referencias](#referencias)-->  
 
@@ -150,7 +154,7 @@ Podemos destacar:
 * `$$`: el ID del proceso del script.
 * `$RANDOM`: devuelve un número aleatorio cada vez que se lee esta variable.
 
-### 4.4. Asignación del resultado de un comando a una función
+### 4.4. Obtener el resultado de un comando
 
 Cuando queremos guardar el resultado de la ejecución de un comando, tenemos que meter el comando dentro de paréntesis `()` y preceder los paréntesis con `$`, tal como `$(<comando>)`.
 
@@ -200,18 +204,153 @@ Por ejemplo:
 
     ![imagComillas2](/Imagenes/comillas-salida2.png)
 
-## 5. Comandos en Bash
+## 5. Operaciones aritméticas
+
+En Bash podemos realizar operaciones aritméticas con números enteros de forma nativa. Para ello debemos utilizar la siguiente combinación de símbolos `$(())`, e introducir dentro alguno de los siguientes operadores:
+
+* `+`: Suma `$((25+2))` (Resultado: `27`).
+* `-`: Resta `$((25-2))` (Resultado: `23`).
+* `*`: Multiplicación `$((25*2))` (Resultado: `50`).
+* `/`: División `$((25/2))` (Resultado: `12`).
+* `%`: Resto `$((25%2))` (Resultado: `1`).
+
+Tal y como se ha comentado anteriormente, estas operaciones únicamente son válidas si queremos hacer operaciones con números enteros, pero si queremos realizar operaciones con números reales podemos utilizar el comando `bc`
+
+Ejemplo:
+```bash
+echo "25.2*3.32" | bc
+```
+
+Obtenemos:
+
+![imagbc1](/Imagenes/bc-salida.png)
+
+En nuestro caso vamos a utilizar para realizar este tipo de cálculos, aunque a priori sea más tedioso, `python` al ser un lenguaje de programación completo, podremos realizar cualquier tipo de operación, aún más si utilizamos el módulo `math`.
+
+Comprobación y resultado:
+
+![imagpy1](/Imagenes/python3-1.png)
+
+Como vemos en el resultado obtenido tiene muchos decimales, por tanto tenemos que controlar este hecho para que la salida sea la deseada. Para solucionar esta cuestión, debemos poner el comando con `"{}".format()` que nos ayudará a establecer el formato deseado.
+
+En el siguiente ejemplo se indica que la salida de la operación sea de tipo `float` y que queremos dos decimales detrás de la coma. Esto se indica cuando poniendo `"{:.2f}.format(<operación o variable>)"`, el `2` indica los decimales ya que está puesto tras el `.` y la `f` (float) nos indica el tipo de dato.
+
+![imagpy2](/Imagenes/python3-2.png)
+
+Más información: [enlace](https://www2.eii.uva.es/fund_inf/python/notebooks/03_E_S/Entrada_salida.html) 
+
+## 6. Lógicas
+
+La utilidad de estas operaciones es saber si una consulta es cierta o no. Para ello podemos utilizar la orden `test` o delimitar la comprobación entre corchetes `[]`.
+
+De tal forma, serían compatibles tanto la expresión `test 1 -lt 2` que `[ 1 -lt 2 ]`, **cuidado con los espacios** que hay tras y después de los corchetes, son **obligatorios**.
+
+### Comprobaciones sobre cadenas y números.
+
+| Cadena | Numérico | Descripción |
+| :---: | :---: | :---: |
+| x = y | x -eq y | **x** es igual que **y** |
+| x != y | x -ne y | **x** es distinto que **y** |
+| x < y | x -lt y | **x** es menor que **y** |
+| - | x -le y | **x** es menor o igual que **y** |
+| x > y | x -gt y | **x** es mayor que **y** |
+| - | x -ge y | **x** es mayor o igual que **y** |
+| -nx | - | **x** es no nulo |
+| -zx | - | **x** es nulo |
+
+### Comprobaciones sobre ficheros y directorios.
+
+| Operador | Descripción |
+| :---: | :---: |
+| -d RUTA | Cierto si la RUTA existe y es un directorio. |
+| -e RUTA | Cierto si la RUTA existe sea el elemento que sea. |
+| -f RUTA | Cierto si la RUTA existe y es un archivo. |
+| -r RUTA | Cierto si la RUTA existe y se puede leer. |
+| -w RUTA | Cierto si la RUTA existe y se puede escribir. |
+| -x RUTA | Cierto si la RUTA existe y se puede ejecutar. |
+| -s RUTA | Cierto si la RUTA existe y su tamaño es mayor que cero (no está vacío). |
+
+### Operadores lógicos.
+
+| Operador [  ] | Operador [[ ]] | Descripción |
+| :---: | :---: | :---: |
+| !EXPRESIÓN | !EXPRESIÓN | NEGACIÓN: cierto si la EXPRESIÓN es falsa. |
+| EXPRESIÓN1 -a EXPRESIÓN2 | EXPRESIÓN1 && EXPRESIÓN2 | AND: cierto si ambas EXPRESIONES son ciertas. |
+| EXPRESIÓN1 -o EXPRESIÓN2 | EXPRESIÓN1 \|\| EXPRESIÓN2 | OR: cierto si una de las dos EXPRESIONES son ciertas. | 
+
+### 6.1. Condicionales: id then else
+
+Las condicionales en Bash se materializan con `if then else elif fi` y con `case esac`. Independientemente de uno u otro, consiste en resolver una cuestión final de una comparación.
+
+#### 6.1.1 if
+A continuación se muestra un ejemplo en el que se indica una comparación para saber cuál de los argumentos de entrada `1` o `2` es mayor y si son iguales.
+
+```Bash
+#!/bin/bash
+
+if test $1 -gt $2
+then
+    echo "La variable de entrada 1 es mayor."
+elif test $1 -eq $2
+then
+    echo "Las variables de entrada son idénticas."
+else
+    echo "La variable de entrada 2 es mayor."
+fi
+```
+o
+```Bash
+#!/bin/bash
+
+if [[ $1 -gt $2 ]]
+then
+    echo "La variable de entrada 1 es mayor."
+elif [[ $1 -eq $2 ]]
+then
+    echo "Las variables de entrada son idénticas."
+else
+    echo "La variable de entrada 2 es mayor."
+fi
+```
+
+Donde en ambos casos se obtiene como resultado: 
+
+![imagif1](/Imagenes/if.png)
+
+#### 6.1.2 case
+
+En el caso de que se desee comparar diversos supuestos y que no se convierta en algo muy tedioso, podremos usar `case` que nos ayudará a que nuestro código sea más legible.
+
+La sintaxis será:
+
+```Bash
+#!/bin/bash
+
+case <expresión> in
+    <patrón 1>)
+        comandos
+        ;;
+    <patrón 2>)
+        comandos
+        ;;
+    *)
+        comandos
+        ;;
+esac
+```
+
+## Comandos en Bash
 
 En este apartado se pretende ir anexando aquellos comandos que se están utilizando en cada uno de los script que vamos utilizando.
 
-### 5.1. Comando echo
+### 1. Comando echo
 
-    En Linux, se utiliza para imprimir por la salida estándar, la pantalla por defecto, el texto introducido al comando `echo`.
+En Linux, se utiliza para imprimir por la salida estándar, la pantalla por defecto, el texto introducido al comando `echo`.
 
-    **Ejemplo sintáctico**: 
-    ```bash  
-    echo "Hola mundo"
-    ```
+**Ejemplo sintáctico**: 
+```bash  
+echo "Hola mundo"
+```
 
 **Salida del comando**:
 
